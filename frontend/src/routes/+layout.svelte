@@ -11,6 +11,7 @@
     import MinimizeIcon from 'virtual:icons/mdi/minimize'
     import { Quit, WindowGetSize, WindowIsMaximised, WindowMaximise, WindowMinimise, WindowToggleMaximise, WindowUnmaximise, type Size } from '$lib/wailsjs/runtime/runtime';
     import { onMount } from 'svelte';
+    import { browser } from '$app/environment';
     
     var isMaximized = false
     var size : Size;
@@ -18,32 +19,42 @@
     const headerSize = "2.8rem"
 
     function getSize() {
-        WindowGetSize().then((val) => {
-            size = val
-        })
+        if (browser) {            
+            WindowGetSize().then((val) => {
+                size = val
+            })
+        }
     }
 
     function maximise() {
-        WindowMaximise()
-        isMaximized = true
+        if (browser) {            
+            WindowMaximise()
+            isMaximized = true
+        }
     }
 
     function minimize() {
-        WindowUnmaximise()
-        isMaximized = false
+        if (browser) {            
+            WindowUnmaximise()
+            isMaximized = false
+        }
     }
 
     function onActionClick() {
-        WindowToggleMaximise()
-        WindowIsMaximised().then((val) => isMaximized = val)
+        if (browser) {            
+            WindowToggleMaximise()
+            WindowIsMaximised().then((val) => isMaximized = val)
+        }
     }
 
 
     onMount(()=> {
-        WindowIsMaximised().then((val) => {
-            getSize(); 
-            isMaximized = val
-        })
+        if (browser) {            
+            WindowIsMaximised().then((val) => {
+                getSize(); 
+                isMaximized = val
+            })
+        }
     })
     
 

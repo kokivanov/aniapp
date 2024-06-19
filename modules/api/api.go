@@ -72,3 +72,7 @@ func ReqestTrending(p int, pp int) []Anime {
 
 	return dataResponse.Data.Page.Media
 }
+
+func ReqestTitle(id int) {
+
+}
