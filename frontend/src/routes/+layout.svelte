@@ -12,11 +12,10 @@
     import { Quit, WindowGetSize, WindowIsMaximised, WindowMaximise, WindowMinimise, WindowToggleMaximise, WindowUnmaximise, type Size } from '$lib/wailsjs/runtime/runtime';
     import { onMount } from 'svelte';
     import { browser } from '$app/environment';
-    
+    import { headerSize } from "$lib/consts"
+
     var isMaximized = false
     var size : Size;
-
-    const headerSize = "2.8rem"
 
     function getSize() {
         if (browser) {            
@@ -107,9 +106,10 @@
     </section>
 {/if}
 
-<!-- TODO: <div class="bg-orange-100 fixed h-full w-full top-0 -z-20">
-    <img src="/images/background.jpg" class="fixed bottom-0 left-0 h-full -z-10 opacity-5" alt="Application logo">
-</div> -->
+<div class="fixed h-full w-full top-0 -z-20">
+    <div class="h-full w-full bg-stone-900 opacity-85"></div>
+    <img src="/images/background.jpg" class="fixed bottom-0 left-0 h-full w-full -z-10 opacity-50" alt="Application logo">
+</div>
 
 <style>
     .titlebar-grid {

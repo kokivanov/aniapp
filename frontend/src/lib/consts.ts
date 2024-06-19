@@ -1,0 +1,1 @@
+export const headerSize = "2.8rem"

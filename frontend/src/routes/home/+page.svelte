@@ -5,10 +5,10 @@
     import type { api } from "$lib/wailsjs/go/models";
     import type { Size } from "$lib/wailsjs/runtime/runtime";
     
-    let animeList : Promise<api.Anime[]> = GetNewestList(1, 40);
+    let animeList : Promise<api.Anime[]> = GetNewestList(1, 100);
 </script>
 
-<section class="grid lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 3xl:grid-cols-8 w-5/6 my-4 mx-auto place-content-center align-middle">
+<section class="grid lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 3xl:grid-cols-8 w-fit my-4 mx-auto place-content-center align-middle">
     {#await animeList }
         <div class="loader-container flex fixed items-center justify-center h-full w-full left-0 top-0">
             <!-- TODO: Add raphtalia at the adge of the screen -->
