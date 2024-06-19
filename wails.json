@@ -1,0 +1,13 @@
+{
+  "name": "anitorrent",
+  "outputfilename": "anitorrent",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build --base=./",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "wailsjsdir": "./frontend/src/lib",
+  "author": {
+    "name": "koki",
+    "email": "kokivanov@gmail.com"
+  }
+}
