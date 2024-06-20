@@ -1,5 +1,9 @@
 package api
 
-type AnimeDataRepsonse struct {
-	Data AnimeData `json:"data"`
+type ParialAnimeDataRepsonse struct {
+	Data PartialAnimeData `json:"data"`
+}
+
+type FullAnimeDataRepsonse struct {
+	Data FullAnimeData `json:"data"`
 }

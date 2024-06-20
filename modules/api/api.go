@@ -58,9 +58,9 @@ func makeRequest(query string, variables map[string]interface{}, target interfac
 	return nil
 }
 
-func ReqestTrending(p int, pp int) []Anime {
+func ReqestTrending(p int, pp int) []ParialAnime {
 
-	var dataResponse AnimeDataRepsonse
+	var dataResponse ParialAnimeDataRepsonse
 	variables := map[string]interface{}{
 		"page":    p,
 		"perPage": pp,
@@ -73,6 +73,15 @@ func ReqestTrending(p int, pp int) []Anime {
 	return dataResponse.Data.Page.Media
 }
 
-func ReqestTitle(id int) {
+func ReqestFullInfo(id int) FullAnime {
+	var dataResponse FullAnimeDataRepsonse
+	variables := map[string]interface{}{
+		"id": id,
+	}
+	err := makeRequest(ANIME_FULL, variables, &dataResponse)
+	if err != nil {
+		log.Fatal(err.Error())
+	}
 
+	return dataResponse.Data.Media
 }
