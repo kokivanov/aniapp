@@ -79,6 +79,7 @@ func ReqestFullInfo(id int) FullAnime {
 		"id": id,
 	}
 	err := makeRequest(ANIME_FULL, variables, &dataResponse)
+
 	if err != nil {
 		log.Fatal(err.Error())
 	}

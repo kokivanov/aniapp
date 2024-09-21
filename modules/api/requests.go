@@ -3,7 +3,7 @@ package api
 const (
 	TRENDING = `query ($page: Int = 1, $perPage: Int = 1) {
 					Page(page: $page, perPage: $perPage) {
-						media(sort: TRENDING_DESC) {
+						media(sort: TRENDING_DESC, type: ANIME) {
 						id
 						idMal
 						title {
