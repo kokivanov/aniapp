@@ -65,7 +65,7 @@ func ReqestTrending(p int, pp int) []ParialAnime {
 		"page":    p,
 		"perPage": pp,
 	}
-	err := makeRequest(TRENDING, variables, &dataResponse)
+	err := makeRequest(SHORT_INFO, variables, &dataResponse)
 	if err != nil {
 		log.Fatal(err.Error())
 	}

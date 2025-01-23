@@ -9,3 +9,7 @@ export function GetFullInfo(arg1) {
 export function GetNewestList(arg1, arg2) {
   return window['go']['main']['App']['GetNewestList'](arg1, arg2);
 }
+
+export function SafeQuit(arg1, arg2) {
+  return window['go']['main']['App']['SafeQuit'](arg1, arg2);
+}

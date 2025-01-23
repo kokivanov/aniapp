@@ -21,6 +21,10 @@ func (a *App) startup(ctx context.Context) {
 	a.ctx = ctx
 }
 
+func (a *App) SafeQuit(p int, pp int) {
+	a.ctx.Done()
+}
+
 func (a *App) GetNewestList(p int, pp int) []api.ParialAnime {
 	return api.ReqestTrending(p, pp)
 }

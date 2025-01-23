@@ -1,9 +1,9 @@
 package api
 
 const (
-	TRENDING = `query ($page: Int = 1, $perPage: Int = 1) {
+	SHORT_INFO = `query ($page: Int = 1, $perPage: Int = 1, $sort: [MediaSort] = [TRENDING_DESC]) {
 					Page(page: $page, perPage: $perPage) {
-						media(sort: TRENDING_DESC, type: ANIME) {
+						media(sort: $sort, type: ANIME) {
 						id
 						idMal
 						title {
