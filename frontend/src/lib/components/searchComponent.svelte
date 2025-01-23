@@ -3,6 +3,8 @@
     import { searchRequestStore } from "$lib/storages/searchRequest";
     import { cubicOut } from "svelte/easing";
     import { page } from "$app/stores";
+    import { resolveRoute } from "$app/paths";
+    import { goto } from "$app/navigation";
 
     function scaleX(node: HTMLElement, { duration = 300 } = {}) {
         return {
@@ -34,6 +36,15 @@
     function handleSearchBlur() {
         searchFocus = false;
     }
+
+    function handleSearchChange() {
+        if ($searchRequestStore) {
+
+            goto("/search")
+        } else {
+            goto('/explore')
+        }
+    }
 </script>
 
 <div
@@ -53,6 +64,7 @@
             class="ml-2 rounded-md px-2"
             on:blur={handleSearchBlur}
             on:focus={handleSearchFocus}
+            on:change={handleSearchChange}
         />
     {/if}
 </div>
