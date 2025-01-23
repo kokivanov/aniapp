@@ -25,8 +25,12 @@ func (a *App) SafeQuit(p int, pp int) {
 	a.ctx.Done()
 }
 
-func (a *App) GetNewestList(p int, pp int) []api.ParialAnime {
+func (a *App) GetTrendingList(p int, pp int) []api.ParialAnime {
 	return api.ReqestTrending(p, pp)
+}
+
+func (a *App) GetFiltered(p int, pp int, req *string, year *int16, genres *[]string, isAdult *bool, statusIn *[]string, tags *[]string) []api.ParialAnime {
+	return api.ReqestSearch(p, pp, req, year, genres, isAdult, statusIn, tags)
 }
 
 func (a *App) GetFullInfo(id int) api.FullAnime {

@@ -73,6 +73,23 @@ func ReqestTrending(p int, pp int) []ParialAnime {
 	return dataResponse.Data.Page.Media
 }
 
+func ReqestSearch(p int, pp int, req *string, year *int16, genres *[]string, isAdult *bool, statusIn *[]string, tags *[]string) []ParialAnime {
+
+	var dataResponse ParialAnimeDataRepsonse
+	variables := map[string]interface{}{
+		"page":    p,
+		"perPage": pp,
+		"search":  req,
+	}
+
+	err := makeRequest(SHORT_INFO, variables, &dataResponse)
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+
+	return dataResponse.Data.Page.Media
+}
+
 func ReqestFullInfo(id int) FullAnime {
 	var dataResponse FullAnimeDataRepsonse
 	variables := map[string]interface{}{
