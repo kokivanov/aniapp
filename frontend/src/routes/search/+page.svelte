@@ -9,6 +9,13 @@
   import { goto } from "$app/navigation";
 
   let animeList: Promise<api.ParialAnime[]>;
+  const searchDebounced = debounce((req) => {
+    if (!$searchRequestStore?.length) {
+      goto("/explore");
+    } else {
+      animeList = GetFiltered(1, 100, req, null, null, null, null, null);
+    }
+  }, 400);
 
   if (browser) {
     animeList = GetFiltered(
@@ -23,11 +30,7 @@
     );
 
     searchRequestStore.subscribe((req: string) => {
-      if (!req?.length) {
-        goto("/explore");
-      } else {
-        animeList = GetFiltered(1, 100, req, null, null, null, null, null);
-      }
+      searchDebounced(req);
     });
   }
 </script>

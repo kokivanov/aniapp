@@ -13,7 +13,7 @@
   {#await animeList}
     <Loader></Loader>
   {:then anilist}
-    {#if anilist.length}
+    {#if anilist?.length}
       {#each anilist as anime}
         <AnimeTile {anime}></AnimeTile>
       {/each}
